@@ -1,17 +1,18 @@
 import { Composer } from "grammy";
+import type { Ctx } from "../bot.js";
+import { registerMainMenuItem, inlineButton, inlineKeyboard } from "../toolkit/index.js";
 
-// SCAFFOLD — generated from the bot blueprint BEFORE the agent runs.
-// Keep a LIVE registration (.command / .callbackQuery / …) so this feature is
-// never an empty stub. Replace the reply body with real logic + copy; if you
-// change the user-facing text, update tests/specs to match EXACTLY.
-// Do NOT rewrite src/bot.ts — buildBot() already auto-loads this module.
-// Menu: wire this into /start via registerMainMenuItem({ label: "View Watchlist", data: "watchlist:view" }) if the toolkit exposes it.
+// View Watchlist: wire the main menu button.
+registerMainMenuItem({ label: "📋 Watchlist", data: "watchlist:view", order: 20 });
 
-const composer = new Composer();
+const WELCOME_VIEW = "📋 Your watchlist shows prices for coins you track:\n\n"; // TODO: display actual watchlist
+const BACK_TO_MENU = inlineKeyboard([[inlineButton("⬅️ Back to menu", "menu:main")]]);
+
+const composer = new Composer<Ctx>();
 
 composer.callbackQuery("watchlist:view", async (ctx) => {
   await ctx.answerCallbackQuery();
-  await ctx.reply("Display current watchlist items with quick actions");
+  await ctx.editMessageText(WELCOME_VIEW, { reply_markup: BACK_TO_MENU });
 });
 
 export default composer;

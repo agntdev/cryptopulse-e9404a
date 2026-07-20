@@ -1,13 +1,13 @@
 [
   {
-    "name": "Add to Watchlist",
+    "name": "Add to Watchlist opens the ticker-input prompt",
     "steps": [
       {
         "expect": [
           {
-            "method": "sendMessage",
+            "method": "editMessageText",
             "payload": {
-              "text": "Begin adding a new coin to watchlist"
+              "text": "📅 Add to Watchlist: enter a ticker symbol (e.g. BTC, ETH) to monitor its price."
             }
           }
         ],

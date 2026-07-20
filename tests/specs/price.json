@@ -1,13 +1,13 @@
 [
   {
-    "name": "/price",
+    "name": "/price opens the price check prompt",
     "steps": [
       {
         "expect": [
           {
             "method": "sendMessage",
             "payload": {
-              "text": "Check current prices for watchlist or specific ticker"
+              "text": "📊 Current price check: /price (shows watchlist summary) or /price <ticker> (e.g. /price BTC) for a specific coin.\n\n[object Object]"
             }
           }
         ],
