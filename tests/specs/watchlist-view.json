@@ -1,13 +1,13 @@
 [
   {
-    "name": "View Watchlist",
+    "name": "View Watchlist opens the watchlist view",
     "steps": [
       {
         "expect": [
           {
-            "method": "sendMessage",
+            "method": "editMessageText",
             "payload": {
-              "text": "Display current watchlist items with quick actions"
+              "text": "📋 Your watchlist shows prices for coins you track:\n\n"
             }
           }
         ],
